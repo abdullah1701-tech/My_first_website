@@ -1,22 +1,17 @@
-name: Deploy to Firebase Hosting
-
+name: Firebase Deploy
 
 on:
   push:
     branches:
-      - main  # or your active branch
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Firebase CLI
-        run: npm install -g firebase-tools
-
       - name: Deploy to Firebase
-      working-directory: ../
-        - run: firebase deploy --only hosting:default --token ${{ secrets.FIREBASE_TOKEN }}
+        working-directory: ../
+        run: firebase deploy --only hosting:default --token ${{ secrets.FIREBASE_TOKEN }}
