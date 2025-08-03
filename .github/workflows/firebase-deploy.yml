@@ -12,6 +12,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Deploy to Firebase
-        working-directory: ../
-        run: firebase deploy --only hosting:default --token ${{ secrets.FIREBASE_TOKEN }}
+     - name: Deploy to Firebase
+  run: firebase deploy --only hosting:default --token ${{ secrets.FIREBASE_TOKEN }}
